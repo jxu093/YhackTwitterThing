@@ -1,13 +1,26 @@
 body {
-  background: #eaeaea;
+  background: #EEFFFF;
   color: #999;
   font: 400 16px/1.5em sans-serif;
   margin: 0;
 }
 
+#container {
+	margin-left: 40%; 	
+}
+
 #head{
 	padding-top:10px;
 	padding-left:10px;
+	color: #06ADAA;
+/*	text-align: center;
+*/}
+
+#searchbar{
+	padding-top:10px;
+	padding-left:10px;
+	color: #06ADAA;
+	text-align: center;
 }
 
 a:link {
@@ -27,7 +40,7 @@ a:active {
 }
 
 #theI{
-	color: #999;
+	color: #DF013A;
 }
 
 #box {
