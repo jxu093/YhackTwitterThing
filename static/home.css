@@ -1,0 +1,63 @@
+body {
+  background: #eaeaea;
+  color: #999;
+  font: 400 16px/1.5em sans-serif;
+  margin: 0;
+}
+
+#head{
+	padding-top:10px;
+	padding-left:10px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+#theI{
+	color: #999;
+}
+
+#box {
+	margin: auto;
+	margin-top:4%;
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+	height:80%;
+	width: 60%;
+	position:center;
+	border-radius: 25px;
+	background: url(https://svn.mindtouch.com/source/public/dekiwiki/8.05/web/deki-cp/assets/images/blueGradient.png);
+    background-position: left top;
+    background-repeat: repeat;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea#styled {
+	width: 80%;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-image: url(bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
