@@ -25,12 +25,15 @@ def getSentiments(tweets):
        @param {list} tweets
     """
     params = {'apikey':apikey, type:'text'}
-    url = apiurl
-    for tweet in tweets: # build a string since a dict can't have the same key multiple times
+
+    retList = []
+    for tweet in tweets[1:]: # build a string since a dict can't have the same key multiple times
+        url = apiurl
         url += '?text=' + tweet
-    r = requests.get(url, params=params)
-    response = json.loads(r.text)
-    return response
+        r = requests.get(url, params=params)
+        response = json.loads(r.text)
+        retList.append(parseResponse(response))
+    return retList
     
 
 def parseResponse(response):
@@ -38,12 +41,32 @@ def parseResponse(response):
     sentiments = []
     for section in ['positive','negative']:
         for item in response[section]:
-            print item['topic'] + ' ' + str(item['score'])
+            # print item['topic'] + ' ' + str(item['score'])
             sentiments.append({item['topic']:item['score']})
     return sentiments
-	   
+
+
+def aggregateScores(topic, sentiments):
+    sum = 0
+    count = 0
+    for s in sentiments:
+        if s['topic'].find(topic) != -1:
+            sum += s['score']
+            count += 1
+    score = sum/count
+    return score
+
+
+def getScore(topic, tweets):
+    part_one = getSentiments(tweets)
+    # part_two = parseResponse(part_one)
+    part_three = aggregateScores(topic, part_one)
+
+    return part_three
+
+
 def test():
-    " you can delete this".
+    # " you can delete this".
     url = "http://docs.python-requests.org/en/latest/user/quickstart/"
     #    response = getSentinent('url', url)
     response = getSentiment('text', 'I am really annoyed with your poor performance recently. I like cheese.')
@@ -54,7 +77,7 @@ def test2():
     response = getSentiments(tweets)
     return parseResponse(response)
 
-print test2()
+# print test2()
 
 
 
